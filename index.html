@@ -1,2270 +1,434 @@
 
 <!DOCTYPE html>
-<html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
-
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-  <link rel="icon" type="image/png" href="/assets/icon/D_small.png">
-
-
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Driving in the Occupancy World: Vision-Centric 4D Occupancy Forecasting and Planning via World Models for Autonomous Driving">
+  <meta name="keywords" content="Drive-OccWorld">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vista</title>
-
-  <style type="text/css">
-    svg:not(:root).svg-inline--fa {
-      overflow: visible
-    }
-
-    .svg-inline--fa {
-      display: inline-block;
-      font-size: inherit;
-      height: 1em;
-      overflow: visible;
-      vertical-align: -.125em
-    }
-
-    .svg-inline--fa.fa-lg {
-      vertical-align: -.225em
-    }
-
-    .svg-inline--fa.fa-w-1 {
-      width: .0625em
-    }
-
-    .svg-inline--fa.fa-w-2 {
-      width: .125em
-    }
-
-    .svg-inline--fa.fa-w-3 {
-      width: .1875em
-    }
-
-    .svg-inline--fa.fa-w-4 {
-      width: .25em
-    }
-
-    .svg-inline--fa.fa-w-5 {
-      width: .3125em
-    }
-
-    .svg-inline--fa.fa-w-6 {
-      width: .375em
-    }
-
-    .svg-inline--fa.fa-w-7 {
-      width: .4375em
-    }
-
-    .svg-inline--fa.fa-w-8 {
-      width: .5em
-    }
-
-    .svg-inline--fa.fa-w-9 {
-      width: .5625em
-    }
-
-    .svg-inline--fa.fa-w-10 {
-      width: .625em
-    }
-
-    .svg-inline--fa.fa-w-11 {
-      width: .6875em
-    }
-
-    .svg-inline--fa.fa-w-12 {
-      width: .75em
-    }
-
-    .svg-inline--fa.fa-w-13 {
-      width: .8125em
-    }
-
-    .svg-inline--fa.fa-w-14 {
-      width: .875em
-    }
-
-    .svg-inline--fa.fa-w-15 {
-      width: .9375em
-    }
-
-    .svg-inline--fa.fa-w-16 {
-      width: 1em
-    }
-
-    .svg-inline--fa.fa-w-17 {
-      width: 1.0625em
-    }
-
-    .svg-inline--fa.fa-w-18 {
-      width: 1.125em
-    }
-
-    .svg-inline--fa.fa-w-19 {
-      width: 1.1875em
-    }
-
-    .svg-inline--fa.fa-w-20 {
-      width: 1.25em
-    }
-
-    .svg-inline--fa.fa-pull-left {
-      margin-right: .3em;
-      width: auto
-    }
-
-    .svg-inline--fa.fa-pull-right {
-      margin-left: .3em;
-      width: auto
-    }
-
-    .svg-inline--fa.fa-border {
-      height: 1.5em
-    }
-
-    .svg-inline--fa.fa-li {
-      width: 2em
-    }
-
-    .svg-inline--fa.fa-fw {
-      width: 1.25em
-    }
-
-    .fa-layers svg.svg-inline--fa {
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      position: absolute;
-      right: 0;
-      top: 0
-    }
-
-    .fa-layers {
-      display: inline-block;
-      height: 1em;
-      position: relative;
-      text-align: center;
-      vertical-align: -.125em;
-      width: 1em
-    }
-
-    .fa-layers svg.svg-inline--fa {
-      -webkit-transform-origin: center center;
-      transform-origin: center center
-    }
-
-    .fa-layers-counter,
-    .fa-layers-text {
-      display: inline-block;
-      position: absolute;
-      text-align: center
-    }
-
-    .fa-layers-text {
-      left: 50%;
-      top: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      -webkit-transform-origin: center center;
-      transform-origin: center center
-    }
-
-    .fa-layers-counter {
-      background-color: #ff253a;
-      border-radius: 1em;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      color: #fff;
-      height: 1.5em;
-      line-height: 1;
-      max-width: 5em;
-      min-width: 1.5em;
-      overflow: hidden;
-      padding: .25em;
-      right: 0;
-      text-overflow: ellipsis;
-      top: 0;
-      -webkit-transform: scale(.25);
-      transform: scale(.25);
-      -webkit-transform-origin: top right;
-      transform-origin: top right
-    }
-
-    .fa-layers-bottom-right {
-      bottom: 0;
-      right: 0;
-      top: auto;
-      -webkit-transform: scale(.25);
-      transform: scale(.25);
-      -webkit-transform-origin: bottom right;
-      transform-origin: bottom right
-    }
-
-    .fa-layers-bottom-left {
-      bottom: 0;
-      left: 0;
-      right: auto;
-      top: auto;
-      -webkit-transform: scale(.25);
-      transform: scale(.25);
-      -webkit-transform-origin: bottom left;
-      transform-origin: bottom left
-    }
-
-    .fa-layers-top-right {
-      right: 0;
-      top: 0;
-      -webkit-transform: scale(.25);
-      transform: scale(.25);
-      -webkit-transform-origin: top right;
-      transform-origin: top right
-    }
-
-    .fa-layers-top-left {
-      left: 0;
-      right: auto;
-      top: 0;
-      -webkit-transform: scale(.25);
-      transform: scale(.25);
-      -webkit-transform-origin: top left;
-      transform-origin: top left
-    }
-
-    .fa-lg {
-      font-size: 1.3333333333em;
-      line-height: .75em;
-      vertical-align: -.0667em
-    }
-
-    .fa-xs {
-      font-size: .75em
-    }
-
-    .fa-sm {
-      font-size: .875em
-    }
-
-    .fa-1x {
-      font-size: 1em
-    }
-
-    .fa-2x {
-      font-size: 2em
-    }
-
-    .fa-3x {
-      font-size: 3em
-    }
-
-    .fa-4x {
-      font-size: 4em
-    }
-
-    .fa-5x {
-      font-size: 5em
-    }
-
-    .fa-6x {
-      font-size: 6em
-    }
-
-    .fa-7x {
-      font-size: 7em
-    }
-
-    .fa-8x {
-      font-size: 8em
-    }
-
-    .fa-9x {
-      font-size: 9em
-    }
-
-    .fa-10x {
-      font-size: 10em
-    }
-
-    .fa-fw {
-      text-align: center;
-      width: 1.25em
-    }
-
-    .fa-ul {
-      list-style-type: none;
-      margin-left: 2.5em;
-      padding-left: 0
-    }
-
-    .fa-ul>li {
-      position: relative
-    }
-
-    .fa-li {
-      left: -2em;
-      position: absolute;
-      text-align: center;
-      width: 2em;
-      line-height: inherit
-    }
-
-    .fa-border {
-      border: solid .08em #eee;
-      border-radius: .1em;
-      padding: .2em .25em .15em
-    }
-
-    .fa-pull-left {
-      float: left
-    }
-
-    .fa-pull-right {
-      float: right
-    }
-
-    .fa.fa-pull-left,
-    .fab.fa-pull-left,
-    .fal.fa-pull-left,
-    .far.fa-pull-left,
-    .fas.fa-pull-left {
-      margin-right: .3em
-    }
-
-    .fa.fa-pull-right,
-    .fab.fa-pull-right,
-    .fal.fa-pull-right,
-    .far.fa-pull-right,
-    .fas.fa-pull-right {
-      margin-left: .3em
-    }
-
-    .fa-spin {
-      -webkit-animation: fa-spin 2s infinite linear;
-      animation: fa-spin 2s infinite linear
-    }
-
-    .fa-pulse {
-      -webkit-animation: fa-spin 1s infinite steps(8);
-      animation: fa-spin 1s infinite steps(8)
-    }
-
-    @-webkit-keyframes fa-spin {
-      0% {
-        -webkit-transform: rotate(0);
-        transform: rotate(0)
-      }
-
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg)
-      }
-    }
-
-    @keyframes fa-spin {
-      0% {
-        -webkit-transform: rotate(0);
-        transform: rotate(0)
-      }
-
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg)
-      }
-    }
-
-    .fa-rotate-90 {
-      -webkit-transform: rotate(90deg);
-      transform: rotate(90deg)
-    }
-
-    .fa-rotate-180 {
-      -webkit-transform: rotate(180deg);
-      transform: rotate(180deg)
-    }
-
-    .fa-rotate-270 {
-      -webkit-transform: rotate(270deg);
-      transform: rotate(270deg)
-    }
-
-    .fa-flip-horizontal {
-      -webkit-transform: scale(-1, 1);
-      transform: scale(-1, 1)
-    }
-
-    .fa-flip-vertical {
-      -webkit-transform: scale(1, -1);
-      transform: scale(1, -1)
-    }
-
-    .fa-flip-both,
-    .fa-flip-horizontal.fa-flip-vertical {
-      -webkit-transform: scale(-1, -1);
-      transform: scale(-1, -1)
-    }
-
-    :root .fa-flip-both,
-    :root .fa-flip-horizontal,
-    :root .fa-flip-vertical,
-    :root .fa-rotate-180,
-    :root .fa-rotate-270,
-    :root .fa-rotate-90 {
-      -webkit-filter: none;
-      filter: none
-    }
-
-    .fa-stack {
-      display: inline-block;
-      height: 2em;
-      position: relative;
-      width: 2.5em
-    }
-
-    .fa-stack-1x,
-    .fa-stack-2x {
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      position: absolute;
-      right: 0;
-      top: 0
-    }
-
-    .svg-inline--fa.fa-stack-1x {
-      height: 1em;
-      width: 1.25em
-    }
-
-    .svg-inline--fa.fa-stack-2x {
-      height: 2em;
-      width: 2.5em
-    }
-
-    .fa-inverse {
-      color: #fff
-    }
-
-    .sr-only {
-      border: 0;
-      clip: rect(0, 0, 0, 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px
-    }
-
-    .sr-only-focusable:active,
-    .sr-only-focusable:focus {
-      clip: auto;
-      height: auto;
-      margin: 0;
-      overflow: visible;
-      position: static;
-      width: auto
-    }
-
-    .svg-inline--fa .fa-primary {
-      fill: var(--fa-primary-color, currentColor);
-      opacity: 1;
-      opacity: var(--fa-primary-opacity, 1)
-    }
-
-    .svg-inline--fa .fa-secondary {
-      fill: var(--fa-secondary-color, currentColor);
-      opacity: .4;
-      opacity: var(--fa-secondary-opacity, .4)
-    }
-
-    .svg-inline--fa.fa-swap-opacity .fa-primary {
-      opacity: .4;
-      opacity: var(--fa-secondary-opacity, .4)
-    }
-
-    .svg-inline--fa.fa-swap-opacity .fa-secondary {
-      opacity: 1;
-      opacity: var(--fa-primary-opacity, 1)
-    }
-
-    .svg-inline--fa mask .fa-primary,
-    .svg-inline--fa mask .fa-secondary {
-      fill: #000
-    }
-
-    .fad.fa-inverse {
-      color: #fff
-    }
-  </style>
-  <link href="./static/css" rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/bulma.min.css">
-  <link rel="stylesheet" href="./static/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/fontawesome.all.min.css">
-  <link rel="stylesheet" href="./static/academicons.min.css">
-  <link rel="stylesheet" href="./static/academicons_.min.css">
-  <link rel="stylesheet" href="./static/index.css">
-
-  <script src="./static/jquery.min.js"></script>
-  <script defer="" src="./static/fontawesome.all.min.js"></script>
-  <script src="./static/bulma-carousel.min.js"></script>
-  <script src="./static/bulma-slider.min.js"></script>
-  <script src="./static/index.js"></script>
+  <title>Driving in the Occupancy World: Vision-Centric 4D Occupancy Forecasting and Planning via World Models for Autonomous Driving</title>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQCWF52Y54"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-YQCWF52Y54');
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7VEDHS6G8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-L7VEDHS6G8');
-</script>
-
-
 <body>
 
-  <section class="hero">
-    <div class="hero-body column-no-bottom-padding" style="width: 100%">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
+
+<!-- <section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title"></h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Anonymous Authors
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Driving in the Occupancy World: Vision-Centric 4D Occupancy Forecasting and Planning via World Models for Autonomous Driving</h1>
+          <h2 class="title is-3">AAAI 2025</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yuyang-cloud.github.io/">Yu Yang</a>*<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jianbiaomei.github.io/">Jianbiao Mei</a>*<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=D_GzGFYAAAAJ">Yukai Ma</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a>Siliang Du</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a>Wenqing Chen</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a>Yijie Qian</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a>Yuxiang Feng</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=qYcgBbEAAAAJ">Yong Liu</a>&dagger;<sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Zhejiang University,</span>
+            <span class="author-block"><sup>2</sup>Huawei Technologies</span>
+          </div>
+
           <div class="column has-text-centered">
-            <h1 class="title is-2 publication-title">
-              Vista: A Generalizable Driving World Model with <br> High Fidelity and Versatile Controllability
-            </h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a target="_blank" href="https://github.com/Little-Podi">Shenyuan&#160;Gao</a><sup>1,2</sup>,
-                <a target="_blank" href="https://github.com/YTEP-ZHI">Jiazhi&#160;Yang</a><sup>2</sup>,
-                <a target="_blank" href="https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en">Li&#160;Chen</a><sup>2,5</sup>,
-                <a target="_blank" href="https://kashyap7x.github.io">Kashyap&#160;Chitta</a><sup>3,4</sup>,
-                <a target="_blank" href="https://scholar.google.com/citations?user=qgRUOdIAAAAJ&hl=en">Yihang&#160;Qiu</a><sup>2</sup>,
-                <br>
-                <a target="_blank" href="https://www.cvlibs.net">Andreas&#160;Geiger</a><sup>3,4,*</sup>,
-                <a target="_blank" href="https://eejzhang.people.ust.hk">Jun&#160;Zhang</a><sup>1,*</sup>,
-                <a target="_blank" href="https://lihongyang.info">Hongyang&#160;Li</a><sup>2,5,*</sup>
-              </span>
-            </div>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <span class="author-block"><sup>1</sup>Hong Kong University of Science and Technology;&nbsp</span>
-                <span class="author-block"><sup>2</sup>OpenDriveLab at Shanghai AI Lab;&nbsp</span>
-                <br>
-                <span class="author-block"><sup>3</sup>University of T&uuml;bingen;&nbsp</span>
-                <span class="author-block"><sup>4</sup>T&uuml;bingen AI Center;&nbsp</span>
-                <span class="author-block"><sup>5</sup>University of Hong Kong</span>
-              </span>
-            </div>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <span class="author-block"><sup>*</sup>Equal advising.</span>
-              </span>
-            </div>
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <span class="link-block">
-                  <a target="_blank" href="https://arxiv.org/abs/2405.17398" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2408.14197.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
                       <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-
-                <span class="link-block">
-                  <a target="_blank" href="https://github.com/OpenDriveLab/Vista" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2408.14197"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/yuyang-cloud/Drive-OccWorld"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
                       <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
+                  </span>
+                  <span>Code</span>
                   </a>
-                </span>
-
-                <span class="link-block">
-                  <a target="_blank" href="https://huggingface.co/OpenDriveLab/Vista" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <svg class="svg-inline--fa fa-database fa-w-14" aria-hidden="true" focusable="false"
-                        data-prefix="fas" data-icon="database" role="img" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512" data-fa-i2svg="">
-                        <path fill="currentColor"
-                          d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z">
-                        </path>
-                      </svg>
-                    </span>
-                    <span>Model</span>
-                  </a>
-                </span>
-
-                <span class="link-block">
-                  <a target="_blank" href="https://github.com/OpenDriveLab/DriveAGI?tab=readme-ov-file#genad-opendv-dataset-" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
                       <i class="far fa-images"></i>
-                    </span>
-                    <span>Dataset</span>
-                  </a>
-                </span>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered has-text-centered">
-          <div class="column column-no-bottom-padding">
-            <h2 class="title is-3">1. High-Fidelity Open-World Prediction</h2>
-          </div>
-        </div>
-        <div class="rows is-centered ">
-          <div class="columns is-centered has-text-centered">
-            <div class="column column-no-padding" style="font-size: 120%">
-              Videos in this section are: 5 seconds, 10 Hz, 576&times;1024 resolution.
+                  </span>
+                  <span>Data</span>
+                  </a> -->
             </div>
+
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <div class="video_2" id="video_gallery_1" style="width: 100%">
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/1-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/1-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/1-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/1-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/2-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/2-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/2-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/2-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/3-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/3-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/3-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/3-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/4-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/4-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/4-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/4-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/5-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/5-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/5-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/5-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/6-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/6-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/6-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/6-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/1-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/1-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/1-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/1-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/2-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/2-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/2-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/2-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/3-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/3-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/3-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/3-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/4-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/4-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/4-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/4-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/5-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/5-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/5-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/5-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/6-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/6-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/6-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/short_term/6-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-  
   </div>
+</section>
 
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered has-text-centered">
-          <div class="column column-no-bottom-padding">
-            <h2 class="title is-3">2. Continuous Long-Horizon Rollout</h2>
-          </div>
-        </div>
-        <div class="rows is-centered ">
-          <div class="columns is-centered has-text-centered">
-            <div class="column column-no-padding" style="font-size: 120%">
-              Videos in this section are: 16 seconds, 10 Hz, 576&times;1024 resolution.
-            </div>
-          </div>
-        </div>
-      </div>
+<section>
+  <div class="hero-body">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width is-centered">
+        <div class="content has-text-justified">
+            <img src="./static/images/teaser.png" width="100%">
+          <p>
+            <b>4D Occupancy Forecasting and Planning via World Model.</b>
+            Drive-OccWorld takes observations and trajectories as input, incorporating flexible action conditions for <b>action-controllable generation</b>. By leveraging world knowledge and the generative capacity of the world model, we further integrate it with a planner for <b>continuous forecasting and planning</b>.
+          </p>
     </div>
-  </section>
-
-  <div class="video_2" id="video_gallery_2" style="width: 100%">
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/1-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/1-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/1-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/1-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/2-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/2-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/2-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/2-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/1-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/1-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/1-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/1-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/2-1.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/2-2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/2-3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/long_term/2-4.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Realistic drive view.</div>
-        </div>
-      </div>
-    </div>
-  
   </div>
-
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered has-text-centered">
-          <div class="column column-no-bottom-padding">
-            <h2 class="title is-3">3. Zero-Shot Action Controllability</h2>
-          </div>
-        </div>
-        <div class="rows is-centered ">
-          <div class="columns is-centered has-text-centered">
-            <div class="column column-no-padding" style="font-size: 120%">
-              In this section, we use either [trajectory] or [angle+speed] to control the ego-vehicle. <br> Hover the mouse to see the action types that are derived from [trajectory] and [angle+speed] for demonstration clarity.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="video_2" id="video_gallery_3" style="width: 100%">
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/1-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/1-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/1-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/1-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/2-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/2-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/2-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/2-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/3-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/3-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/3-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/3-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/4-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/4-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/4-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/4-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/5-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/5-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/5-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/5-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/6-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/6-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/6-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/6-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/7-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/7-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/7-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/7-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/8-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/8-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/8-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/8-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/9-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/9-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/9-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/9-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/10-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/10-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/10-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper nomobile">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/10-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/1-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/1-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/1-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/1-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/2-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/2-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/2-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/2-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/3-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/3-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/3-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/3-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/4-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/4-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/4-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/4-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/5-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/5-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/5-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/5-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/6-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/6-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/6-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/6-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/7-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/7-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/7-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/7-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/8-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/8-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/8-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/8-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/9-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/9-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/9-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/9-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/10-left.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Left</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/10-forward.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Forward</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/10-right.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Right</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video_wrapper mobileonly">
-      <div class="video_container_hover">
-        <video loop="" muted="" playsinline="" autoplay="">
-          <source src="https://vista-demo.github.io/assets/action_control/10-stop.mp4" type="video/mp4">
-        </video>
-        <div class="caption">
-          <div>Stop</div>
-        </div>
-      </div>
-    </div>
-  
+</div>
+</div>
+</div>
+    <!--/ Abstract. -->
+</section>
+
+<section>
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths is-centered">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            World models envision potential future states based on various ego actions. They embed extensive knowledge about the driving environment, facilitating safe and scalable autonomous driving. 
+            Most existing methods primarily focus on either data generation or the pretraining paradigms of world models. 
+            Unlike the aforementioned prior works, we propose <b>Drive-OccWorld</b>, which adapts a vision-centric 4D forecasting world model to end-to-end planning for autonomous driving. 
+            Specifically, we first introduce a semantic and motion-conditional normalization in the memory module, which accumulates semantic and dynamic information from historical BEV embeddings. 
+            These BEV features are then conveyed to the world decoder for future occupancy and flow forecasting, considering both geometry and spatiotemporal modeling. 
+            Additionally, we propose injecting flexible action conditions, such as velocity, steering angle, trajectory, and commands, into the world model to enable controllable generation and facilitate a broader range of downstream applications. 
+            Furthermore, we explore integrating the generative capabilities of the 4D world model with end-to-end planning, enabling continuous forecasting of future states and the selection of optimal trajectories using an occupancy-based cost function. 
+            Extensive experiments on the nuScenes dataset demonstrate that our method can generate plausible and controllable 4D occupancy, opening new avenues for driving world generation and end-to-end planning.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
   </div>
+</section>
+  
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9428aed019c34e53","version":"2025.4.0-1-g37f21b1","r":1,"token":"c4c51c08cbb148e1b068bb3685c80561","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+  
+<section class="section">
+   <div class="container is-max-desktop">
+    <!-- Methodology. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method Overview</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/pipeline.png" width="100%">
+          <p>
+            <b>Overview of Drive-OccWorld.</b> 
+            (a) The <b>history encoder</b> extracts multi-view image features and transforms them into BEV embeddings. 
+            (b) The <b>memory queue</b> employs semantic- and motion-conditional normalization to aggregate historical information. 
+            (c) The <b>world decoder</b> incorporates action conditions to generate various future occupancies and flows. Integrating the world decoder with an occupancy-based planner enables continuous forecasting and planning.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Methodology. -->
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">4D Occupancy and Flow Forecasting</h2>
+
+    <!-- Group 1: Scene 1 -->
+    <div class="columns is-centered" style="margin-bottom: 6px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <h2 class="title is-4" style="margin-bottom: 6px;">Scene 1 (Lane Change)</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 10px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="./static/images/forecasting_1.png" width="100%">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 60px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/forecasting_1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 2: Scene 2 -->
+    <div class="columns is-centered" style="margin-bottom: 6px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <h2 class="title is-4" style="margin-bottom: 6px;">Scene 2 (Pedestrian Crossing)</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 10px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="./static/images/forecasting_2.png" width="100%">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 60px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/forecasting_2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 3: Scene 3 -->
+    <div class="columns is-centered" style="margin-bottom: 6px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <h2 class="title is-4" style="margin-bottom: 6px;">Scene 3 (Vehicle Following)</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 10px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="./static/images/forecasting_3.png" width="100%">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 60px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/forecasting_3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Continuous Forecasting and Planning</h2>
+
+    <!-- Group 1: Scene 1 -->
+    <div class="columns is-centered" style="margin-bottom: 6px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <h2 class="title is-4" style="margin-bottom: 6px;">Scene 1 (Turn Left to Avoid Stopped Vehicle)</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 10px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="./static/images/planning_1.png" width="100%">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 60px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/planning_1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 2: Scene 2 -->
+    <div class="columns is-centered" style="margin-bottom: 6px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <h2 class="title is-4" style="margin-bottom: 6px;">Scene 2 (Slowing Down to Wait for Crossing Pedestrians)</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 10px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="./static/images/planning_2.png" width="100%">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 60px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/planning_2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 3: Scene 3 -->
+    <div class="columns is-centered" style="margin-bottom: 6px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <h2 class="title is-4" style="margin-bottom: 6px;">Scene 3 (Turn Right to Avoid Stopped Vehicle)</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 10px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="./static/images/planning_3.png" width="100%">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 60px;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/planning_3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{yang2024driving,
+      title={Driving in the occupancy world: Vision-centric 4d occupancy forecasting and planning via world models for autonomous driving},
+      author={Yang, Yu and Mei, Jianbiao and Ma, Yukai and Du, Siliang and Chen, Wenqing and Qian, Yijie and Feng, Yuxiang and Liu, Yong},
+      journal={arXiv preprint arXiv:2408.14197},
+      year={2024}
+    }</code></pre>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under the <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
-
 </html>
+
