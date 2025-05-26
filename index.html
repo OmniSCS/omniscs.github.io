@@ -165,7 +165,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              The synthesis of high-fidelity safety-critical scenarios (SCS) is vital for developing safe and robust autonomous driving systems. While recent methods leverage Neural Radiance Fields (NeRF) and Gaussian Splatting to reconstruct 3D scenes from driving logs, they primarily focus on scene replay and lack the capability to dynamically edit scenes or integrate new objects for SCS generation. Additionally, due to the sparsity of input views, directly modifying agent trajectories introduces artifacts, limiting their utility for realistic scenario synthesis. To address these limitations, we present <b>OmniSCS</b>, a high-fidelity SCS synthesis framework based on real-world driving logs. OmniSCS comprises two key modules: 1) A Fully Editable Driving World Construction module, designed to maintain high-fidelity agent appearance and background during scene editing. This module employs a dual-strategy agent reconstruction method for $360^{\circ}$ agent editing under diverse visual conditions, and a Depth-refinement Background Reconstruction method to mitigate background degradation when moving static agents. 2) A Safety-Critical Scenario Synthesis module that effectively facilitates object insertion and agent trajectory editing to synthesize diverse SCS while preserving data fidelity. Experiments demonstrate that OmniSCS outperforms state-of-the-art methods in edited scene fidelity while supporting autonomous driving algorithm enhancement and closed-loop evaluation. Our framework provides a safer, more effective solution for SCS optimization and testing in autonomous driving.
+              The synthesis of high-fidelity safety-critical scenarios (SCS) is vital for developing safe and robust autonomous driving systems. While recent methods leverage Neural Radiance Fields (NeRF) and Gaussian Splatting to reconstruct 3D scenes from driving logs, they primarily focus on scene replay and lack the capability to dynamically edit scenes or integrate new objects for SCS generation. Additionally, due to the sparsity of input views, directly modifying agent trajectories introduces artifacts, limiting their utility for realistic scenario synthesis. To address these limitations, we present <b>OmniSCS</b>, a high-fidelity SCS synthesis framework based on real-world driving logs. OmniSCS comprises two key modules: 1) A Fully Editable Driving World Construction module, designed to maintain high-fidelity agent appearance and background during scene editing. This module employs a dual-strategy agent reconstruction method for 360-degree agent editing under diverse visual conditions, and a Depth-refinement Background Reconstruction method to mitigate background degradation when moving static agents. 2) A Safety-Critical Scenario Synthesis module that effectively facilitates object insertion and agent trajectory editing to synthesize diverse SCS while preserving data fidelity. Experiments demonstrate that OmniSCS outperforms state-of-the-art methods in edited scene fidelity while supporting autonomous driving algorithm enhancement and closed-loop evaluation. Our framework provides a safer, more effective solution for SCS optimization and testing in autonomous driving.
             </p>
           </div>
         </div>
@@ -330,7 +330,7 @@
     <div class="container is-max-desktop has-text-centered">
       <h2 class="title is-3">SCS Synthesis</h2>
       <!-- Group 1: Scene 1 -->
-      <div class="columns is-centered" style="margin-bottom: 6px;">
+      <div class="columns is-centered">
         <div class="column">
           <div class="content has-text-centered">
             <h2 class="title is-4" style="margin-bottom: 6px;">Appearance-level SCS</h2>
@@ -338,11 +338,11 @@
         </div>
       </div>
 
-      <div class="columns is-centered" style="margin-bottom: 60px;">
+      <div class="columns is-centered">
         <div class="column">
           <div class="content has-text-centered">
             <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
-              <source src="./assets/videos/3.mp4" type="video/mp4">
+              <source src="./assets/videos/app-level-scs.mp4" type="video/mp4">
             </video>
           </div>
         </div>
