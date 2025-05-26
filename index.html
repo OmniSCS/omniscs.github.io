@@ -1,32 +1,34 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="OmniSCS: Omni Safety-Critical Scenario Synthesis for Autonomous Driving via a Fully Editable Driving World">
+    content="OmniSCS: Omni Safety-Critical Scenario Synthesis for Autonomous Driving via a Fully Editable Driving World">
   <meta name="keywords" content="OmniSCS">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OmniSCS: Omni Safety-Critical Scenario Synthesis for Autonomous Driving via a Fully Editable Driving World</title>
+  <title>OmniSCS: Omni Safety-Critical Scenario Synthesis for Autonomous Driving via a Fully Editable Driving World
+  </title>
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQCWF52Y54"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
-  
+
     gtag('config', 'G-YQCWF52Y54');
   </script>
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -34,17 +36,14 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
-  <link 
-  crossorigin="anonymous" 
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-  rel="stylesheet" 
-  />
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet" />
 </head>
+
 <body>
 
 
-<!-- <section class="hero">
+  <!-- <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
@@ -59,14 +58,15 @@
     </div>
   </div>
 </section> -->
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">OmniSCS: Omni Safety-Critical Scenario Synthesis for Autonomous Driving via a Fully Editable Driving World</h1>
-          <!-- <h2 class="title is-3">Siggraph</h2> -->
-          <!-- <div class="is-size-5 publication-authors">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">OmniSCS: Omni Safety-Critical Scenario Synthesis for Autonomous
+              Driving via a Fully Editable Driving World</h1>
+            <!-- <h2 class="title is-3">Siggraph</h2> -->
+            <!-- <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="your github page">your name</a>*<sup>1</sup>,
             </span>
@@ -78,15 +78,15 @@
             </span>
           </div> -->
 
-          <!-- <div class="is-size-5 publication-authors">
+            <!-- <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup> University,</span>
             <span class="author-block"><sup>2</sup>university</span>
           </div> -->
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <!-- <span class="link-block">
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
                 <a href="your pdf link"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -95,17 +95,16 @@
                   <span>Paper</span>
                 </a>
               </span> -->
-              <span class="link-block">
-                <a href="https://www.baidu.com/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+                <span class="link-block">
+                  <a href="https://www.baidu.com/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -114,18 +113,17 @@
                   <span>Video</span>
                 </a>
               </span> -->
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://www.baidu.com/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://www.baidu.com/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
+                    </span>
+                    <span>Code</span>
                   </a>
-              </span>
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
+                </span>
+                <!-- Dataset Link. -->
+                <!-- <span class="link-block">
                 <a href="https://github.com/google/nerfies/releases/tag/0.1"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -133,16 +131,16 @@
                   </span>
                   <span>Data</span>
                   </a> -->
-            </div>
+              </div>
 
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- <section>
+  <!-- <section>
   <div class="hero-body">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -159,96 +157,147 @@
 </div>
 </section> -->
 
-<section>
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths is-centered">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Generating high-fidelity safety-critical scenarios (SCS) is essential for ensuring the safety and robustness of autonomous driving systems.
-            Recent studies have explored reconstructing high-quality 3D scenes from recorded driving logs using Neural Radiance Fields and Gaussian Splatting. 
-            However, these methods primarily focus on replaying original scenes and are not specifically designed to integrate new objects for creating SCS. 
-            Moreover, directly modifying agent trajectories to synthesize SCS often leads to noticeable artifacts in sensor data, due to the sparsity of input views in driving logs. 
-            Hence, in this paper, we present <b>OmniSCS</b>, a high-fidelity safety-critical scenario synthesis framework based on real-world driving logs. 
-            The framework consists of two key modules: 1) the Fully Editable Driving World Construction module is designed to maintain the high-fidelity of agent appearance and background during scene editing. 
-            Specifically, we propose a dual-strategy agent reconstruction method to achieve 360° editing of agents under diverse visual conditions. And we propose a Depth-refinement Background Reconstruction method to address the background degradation challenges posed by moving static agents. 
-            2) the Scenario Synthesis module facilitates the insertion of objects into suitable locations and editing agents’ trajectories to generate diverse SCS. Experimental results demonstrate that OmniSCS achieves superior data fidelity in edited scenes compared to existing state-of-the-art methods. 
-            Furthermore, OmniSCS enables both the improvement of autonomous driving algorithm performance and the implementation of closed-loop evaluation. These results indicate that OmniSCS provides a safer and more effective approach for optimizing and testing SCS in autonomous driving.
-          </p>
+  <section>
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths is-centered">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Generating high-fidelity safety-critical scenarios (SCS) is essential for ensuring the safety and
+              robustness of autonomous driving systems.
+              Recent studies have explored reconstructing high-quality 3D scenes from recorded driving logs using Neural
+              Radiance Fields and Gaussian Splatting.
+              However, these methods primarily focus on replaying original scenes and are not specifically designed to
+              integrate new objects for creating SCS.
+              Moreover, directly modifying agent trajectories to synthesize SCS often leads to noticeable artifacts in
+              sensor data, due to the sparsity of input views in driving logs.
+              Hence, in this paper, we present <b>OmniSCS</b>, a high-fidelity safety-critical scenario synthesis
+              framework based on real-world driving logs.
+              The framework consists of two key modules: 1) the Fully Editable Driving World Construction module is
+              designed to maintain the high-fidelity of agent appearance and background during scene editing.
+              Specifically, we propose a dual-strategy agent reconstruction method to achieve 360° editing of agents
+              under diverse visual conditions. And we propose a Depth-refinement Background Reconstruction method to
+              address the background degradation challenges posed by moving static agents.
+              2) the Scenario Synthesis module facilitates the insertion of objects into suitable locations and editing
+              agents’ trajectories to generate diverse SCS. Experimental results demonstrate that OmniSCS achieves
+              superior data fidelity in edited scenes compared to existing state-of-the-art methods.
+              Furthermore, OmniSCS enables both the improvement of autonomous driving algorithm performance and the
+              implementation of closed-loop evaluation. These results indicate that OmniSCS provides a safer and more
+              effective approach for optimizing and testing SCS in autonomous driving.
+            </p>
+          </div>
         </div>
       </div>
+      <!--/ Abstract. -->
     </div>
-    <!--/ Abstract. -->
-  </div>
-</section>
-  
+  </section>
 
-  
-<section class="section">
-   <div class="container is-max-desktop">
-    <!-- Methodology. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Method Overview</h2>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Methodology. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Method Overview</h2>
           <div class="content has-text-justified">
             <img src="./assets/images/sys-arch.png" width="100%">
-          <p>
-            <b>Overview of OmniSCS.</b> 
-            (a) The <b>Fulling Editable Driving World Construction (EDW) module</b> generates a vehicle dataset pool for 3D agent reconstruction under varying conditions and creating the scenario background using absolute depth information
-            (b) The <b>Scenario Synthesis module</b> facilitates the insertion of appearance-level objects into suitable locations and editing agents’ trajectories to generate behavior-level risky maneuvers. This enables 1-to-N SCS synthesis, allowing the generation of diverse scenarios from a single original scene, thereby enhancing AVs performance and supporting closed-loop testing in dynamic environments through real-time sensor feedback.
-          </p>
+            <p>
+              <b>Overview of OmniSCS.</b>
+              (a) The <b>Fulling Editable Driving World Construction (EDW) module</b> generates a vehicle dataset pool
+              for 3D agent reconstruction under varying conditions and creating the scenario background using absolute
+              depth information
+              (b) The <b>Scenario Synthesis module</b> facilitates the insertion of appearance-level objects into
+              suitable locations and editing agents’ trajectories to generate behavior-level risky maneuvers. This
+              enables 1-to-N SCS synthesis, allowing the generation of diverse scenarios from a single original scene,
+              thereby enhancing AVs performance and supporting closed-loop testing in dynamic environments through
+              real-time sensor feedback.
+            </p>
+          </div>
         </div>
       </div>
+      <!--/ Methodology. -->
     </div>
-    <!--/ Methodology. -->
-  </div>
-</section>
+  </section>
 
 
 
-<section class="section">
-  <div class="container is-max-desktop has-text-centered">
-    <h2 class="title is-3">Fulling Editable Driving World</h2>
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Fully Editable Driving World</h2>
 
-    <!-- Group 1: Scene 1 -->
-    <div class="columns is-centered" style="margin-bottom: 6px;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <h2 class="title is-4" style="margin-bottom: 6px;">Rotation</h2>
+      <!-- Group 1: Scene 1 -->
+      <div class="columns is-centered" style="margin-bottom: 6px;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <h2 class="title is-4" style="margin-bottom: 6px;">Let's edit agents!</h2>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- <div class="columns is-centered" style="margin-bottom: 10px;">
+      <!-- <div class="columns is-centered" style="margin-bottom: 10px;">
       <div class="column">
         <div class="content has-text-centered">
           <img src="./assets/" width="100%">
         </div>
       </div>
     </div> -->
+      <div class="container">
+        <div class="row">
+          <div class="d-md-none text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div width="100%">
+              <video class="d-md-none" width="100%" playsinline="" autoplay="" muted="" controls="" loop=""
+                src="./assets/videos/editing/editing_rot.mp4"></video>
+              <h4>OmniRE VS Ours</h4>
+            </div>
+            <br>
 
-    <div class="columns is-centered" style="margin-bottom: 60px;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
-            <source src="./assets/videos/editing/omniscs_editing_rot.mp4" type="video/mp4">
-          </video>
+          </div>
+
+          <!-- Laptop -->
+          <div class="d-none d-md-block text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <div style="display: flex;">
+
+              <!-- Content for the first div -->
+              <div width="100%">
+                <video class="d-none d-md-block" width="100%" style="height: 0px;" autoplay="" muted="" controls=""
+                  loop="" id="nvr388" src="./assets/videos/editing/editing_rot.mp4"
+                  onplay="resizeAndPlay(this)"></video>
+                <canvas class="d-none d-md-block" width="1600" height="608" id="nvr388Merge"></canvas>
+                <h4>OmniRE VS Ours</h4>
+              </div>
+            </div>
+            <br>
+          </div>
+          <br>
+          <hr><br>
+        </div>
+
+      </div>
+
+      <!-- <div class="columns is-centered" style="margin-bottom: 60px;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+              <source src="./assets/videos/editing/omniscs_editing_rot.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Group 2: Scene 2 -->
+      <div class="columns is-centered" style="margin-bottom: 6px;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <h2 class="title is-4" style="margin-bottom: 6px;">Moving</h2>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Group 2: Scene 2 -->
-    <div class="columns is-centered" style="margin-bottom: 6px;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <h2 class="title is-4" style="margin-bottom: 6px;">Moving</h2>
-        </div>
-      </div>
-    </div>
-
-    <!-- <div class="columns is-centered" style="margin-bottom: 10px;">
+      <!-- <div class="columns is-centered" style="margin-bottom: 10px;">
       <div class="column">
         <div class="content has-text-centered">
           <img src="./assets/videos/forecasting_2.png" width="100%">
@@ -256,17 +305,17 @@
       </div>
     </div> -->
 
-    <div class="columns is-centered" style="margin-bottom: 60px;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
-            <source src="./assets/videos/1.mp4" type="video/mp4">
-          </video>
+      <div class="columns is-centered" style="margin-bottom: 60px;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+              <source src="./assets/videos/1.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Group 3: Scene 3
+      <!-- Group 3: Scene 3
     <div class="columns is-centered" style="margin-bottom: 6px;">
       <div class="column">
         <div class="content has-text-centered">
@@ -293,55 +342,54 @@
       </div>
     </div> -->
 
-  </div>
-</section>
+    </div>
+  </section>
 
 
 
-<section class="section">
-  <div class="container is-max-desktop has-text-centered">
-    <h2 class="title is-3">SCS Synthesis</h2>
-
-    <!-- Group 1: Scene 1 -->
-    <div class="columns is-centered" style="margin-bottom: 6px;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <h2 class="title is-4" style="margin-bottom: 6px;">Appearance-level SCS</h2>
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">SCS Synthesis</h2>
+      <!-- Group 1: Scene 1 -->
+      <div class="columns is-centered" style="margin-bottom: 6px;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <h2 class="title is-4" style="margin-bottom: 6px;">Appearance-level SCS</h2>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="columns is-centered" style="margin-bottom: 60px;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
-            <source src="./assets/videos/3.mp4" type="video/mp4">
-          </video>
+      <div class="columns is-centered" style="margin-bottom: 60px;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+              <source src="./assets/videos/3.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Group 2: Scene 2 -->
-    <div class="columns is-centered" style="margin-bottom: 6px;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <h2 class="title is-4" style="margin-bottom: 6px;">Behavior-level SCS</h2>
+      <!-- Group 2: Scene 2 -->
+      <div class="columns is-centered" style="margin-bottom: 6px;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <h2 class="title is-4" style="margin-bottom: 6px;">Behavior-level SCS</h2>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="columns is-centered" style="margin-bottom: 60px;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
-            <source src="./assets/videos/3.mp4" type="video/mp4">
-          </video>
+      <div class="columns is-centered" style="margin-bottom: 60px;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <video poster="" id="wod" autoplay controls muted loop playsinline width="100%">
+              <source src="./assets/videos/3.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Group 3: Scene 3 -->
-    <!-- <div class="columns is-centered" style="margin-bottom: 6px;">
+      <!-- Group 3: Scene 3 -->
+      <!-- <div class="columns is-centered" style="margin-bottom: 6px;">
       <div class="column">
         <div class="content has-text-centered">
           <h2 class="title is-4" style="margin-bottom: 6px;">Scene 3 (Turn Right to Avoid Stopped Vehicle)</h2>
@@ -367,86 +415,16 @@
       </div>
     </div> -->
 
-  </div>
-</section>
-
-<div class="section" >
-
-  <section id="results" class="">
-     <div class="container">
-        <div class="row">
-           
-              <h2 class="section-title-tc">Results</h2>
-              
-              <hr>
-              
-
-              <!-- Phone -->
-
-              <div class="d-md-none text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                 
-
-       
-          
-                 <div width="100%">
-                    <video class="d-md-none" width="100%" playsinline="" autoplay="" muted="" controls="" loop=""
-                       src="./assets/videos/editing/editing_rot.mp4"></video>
-         <h4>OmniRE VS Ours</h4>
-                 </div>
-                  <div width="100%">
-                    <video class="d-md-none" width="100%" playsinline="" autoplay="" muted="" controls="" loop=""
-                       src="./assets/videos/editing/editing_rot.mp4"></video>
-       <h4>EmerNeRF VS Ours</h4>
-                 </div> 
-                 <br>
-
-              </div>
-
-              <!-- Laptop -->
-   
-              <div class="d-none d-md-block text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
-               
-   
-   <div style="display: flex;">
-                   
-                       <!-- Content for the first div -->
-                       <div width="100%">
-                          <video class="d-none d-md-block" width="100%" style="height: 0px;" autoplay="" muted=""
-                             controls="" loop="" id="nvr388" src="./assets/videos/editing/editing_rot.mp4"
-                             onplay="resizeAndPlay(this)"></video>
-                          <canvas class="d-none d-md-block" width="1600" height="608" id="nvr388Merge"></canvas>
-                        <h4>OmniRE VS Ours</h4> 
-     </div>
-                    </div>
-                  <div style="display: flex;">
-                       <!-- Content for the second div -->
-                       <div width="100%">
-                          <video class="d-none d-md-block" width="100%" style="height: 0px;" autoplay="" muted=""
-                             controls="" loop="" id="nvr392" src="./assets/videos/editing/editing_rot.mp4"
-                             onplay="resizeAndPlay(this)"></video>
-                          <canvas class="d-none d-md-block" width="1600" height="608" id="nvr392Merge"></canvas>
-                          <h4>EmerNeRF VS Ours</h4> 
-     </div>
-                    </div>
-             
-                 <br>
-               
-
-          
-
-
-          
-              </div>
-              <br>
-              <hr><br>
-
-              
-           </div>
-       
-     </div>
-     </div>
+    </div>
   </section>
-<!-- <section class="section" id="BibTeX">
+
+  <div class="section">
+
+    <section id="results" class="">
+
+  </div>
+  </section>
+  <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{,
@@ -460,34 +438,34 @@
 
 
 
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website template is borrowed from <a
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under the <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+              under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-<!-- Custom JavaScript for this theme -->
-<script src="js/scrolling-nav.js"></script>
-<!-- From ResField -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-   crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/index.js"></script>
+  </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+  <!-- From ResField -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./js/index.js"></script>
 </body>
+
 </html>
