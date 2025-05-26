@@ -158,34 +158,14 @@
 </section> -->
 
   <section>
-    <div class="container is-max-desktop">
+    <div class="container is-fluid">
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths is-centered">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Generating high-fidelity safety-critical scenarios (SCS) is essential for ensuring the safety and
-              robustness of autonomous driving systems.
-              Recent studies have explored reconstructing high-quality 3D scenes from recorded driving logs using Neural
-              Radiance Fields and Gaussian Splatting.
-              However, these methods primarily focus on replaying original scenes and are not specifically designed to
-              integrate new objects for creating SCS.
-              Moreover, directly modifying agent trajectories to synthesize SCS often leads to noticeable artifacts in
-              sensor data, due to the sparsity of input views in driving logs.
-              Hence, in this paper, we present <b>OmniSCS</b>, a high-fidelity safety-critical scenario synthesis
-              framework based on real-world driving logs.
-              The framework consists of two key modules: 1) the Fully Editable Driving World Construction module is
-              designed to maintain the high-fidelity of agent appearance and background during scene editing.
-              Specifically, we propose a dual-strategy agent reconstruction method to achieve 360° editing of agents
-              under diverse visual conditions. And we propose a Depth-refinement Background Reconstruction method to
-              address the background degradation challenges posed by moving static agents.
-              2) the Scenario Synthesis module facilitates the insertion of objects into suitable locations and editing
-              agents’ trajectories to generate diverse SCS. Experimental results demonstrate that OmniSCS achieves
-              superior data fidelity in edited scenes compared to existing state-of-the-art methods.
-              Furthermore, OmniSCS enables both the improvement of autonomous driving algorithm performance and the
-              implementation of closed-loop evaluation. These results indicate that OmniSCS provides a safer and more
-              effective approach for optimizing and testing SCS in autonomous driving.
+              The synthesis of high-fidelity safety-critical scenarios (SCS) is vital for developing safe and robust autonomous driving systems. While recent methods leverage Neural Radiance Fields (NeRF) and Gaussian Splatting to reconstruct 3D scenes from driving logs, they primarily focus on scene replay and lack the capability to dynamically edit scenes or integrate new objects for SCS generation. Additionally, due to the sparsity of input views, directly modifying agent trajectories introduces artifacts, limiting their utility for realistic scenario synthesis. To address these limitations, we present <b>OmniSCS</b>, a high-fidelity SCS synthesis framework based on real-world driving logs. OmniSCS comprises two key modules: 1) A Fully Editable Driving World Construction module, designed to maintain high-fidelity agent appearance and background during scene editing. This module employs a dual-strategy agent reconstruction method for $360^{\circ}$ agent editing under diverse visual conditions, and a Depth-refinement Background Reconstruction method to mitigate background degradation when moving static agents. 2) A Safety-Critical Scenario Synthesis module that effectively facilitates object insertion and agent trajectory editing to synthesize diverse SCS while preserving data fidelity. Experiments demonstrate that OmniSCS outperforms state-of-the-art methods in edited scene fidelity while supporting autonomous driving algorithm enhancement and closed-loop evaluation. Our framework provides a safer, more effective solution for SCS optimization and testing in autonomous driving.
             </p>
           </div>
         </div>
@@ -194,26 +174,17 @@
     </div>
   </section>
 
-
-
   <section class="section">
-    <div class="container is-max-desktop">
+    <div class="container is-fluid">
       <!-- Methodology. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <h2 class="title is-3">Method Overview</h2>
           <div class="content has-text-justified">
-            <img src="./assets/images/sys-arch.png" width="100%">
+            <img src="./assets/images/sys-arch.pdf" width="100%">
             <p>
-              <b>Overview of OmniSCS.</b>
-              (a) The <b>Fulling Editable Driving World Construction (EDW) module</b> generates a vehicle dataset pool
-              for 3D agent reconstruction under varying conditions and creating the scenario background using absolute
-              depth information
-              (b) The <b>Scenario Synthesis module</b> facilitates the insertion of appearance-level objects into
-              suitable locations and editing agents’ trajectories to generate behavior-level risky maneuvers. This
-              enables 1-to-N SCS synthesis, allowing the generation of diverse scenarios from a single original scene,
-              thereby enhancing AVs performance and supporting closed-loop testing in dynamic environments through
-              real-time sensor feedback.
+              <b>Method Overview.</b> <b>Left:</b> OmniSCS decomposes driving scenes into several agent nodes and a background node through the Gaussian scene graph. By reconstructing consistent $360^{\circ}$ agent appearance and hole-free background, OmniSCS establishes a fully editable driving world (EDW).
+<b>Right:</b> Based on the EDW, OmniSCS enables 1-to-N SCS synthesis by integrating new objects and editing agent trajectories to generate behavior-level risky maneuvers.
             </p>
           </div>
         </div>
@@ -221,8 +192,6 @@
       <!--/ Methodology. -->
     </div>
   </section>
-
-
 
   <section class="section">
     <!-- <div class="container is-max-desktop has-text-centered"> -->
@@ -239,23 +208,16 @@
         </div>
       </div>
 
-      <!-- <div class="columns is-centered" style="margin-bottom: 10px;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <img src="./assets/" width="100%">
-        </div>
-      </div>
-    </div> -->
       <div class="container">
         <div class="row">
           <div class="d-md-none text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div width="100%">
-              <video class="d-md-none" width="50%" playsinline="" autoplay="" muted="" controls="" loop=""
+              <video class="d-md-none" width="100%" playsinline="" autoplay="" muted="" controls="" loop=""
                 src="./assets/videos/editing/editing_rot.mp4"></video>
               <h4>OmniRE VS Ours</h4>
             </div>
             <div width="100%">
-              <video class="d-md-none" width="50%" playsinline="" autoplay="" muted="" controls="" loop=""
+              <video class="d-md-none" width="100%" playsinline="" autoplay="" muted="" controls="" loop=""
                 src="./assets/videos/editing/editing_rot.mp4"></video>
               <h4>OmniRE VS Ours</h4>
             </div>
@@ -270,9 +232,8 @@
                 <video class="d-none d-md-block" width="100%" style="height: 0px;" autoplay="" muted="" controls=""
                   loop="" id="nvr388" src="./assets/videos/editing/editing_rot.mp4"
                   onplay="resizeAndPlay(this)"></video>
-                <canvas class="d-none d-md-block" width="3200" height="608" id="nvr388Merge"></canvas>
-                <!-- <canvas class="d-none d-md-block" width="100%" id="nvr388Merge"></canvas> -->
-                <h4>OmniRE VS Ours</h4>
+                <canvas class="d-none d-md-block" width="1600" height="608" id="nvr388Merge"></canvas>
+                <h4>OmniRE VS Ours (Rotation)</h4>
               </div>
             </div>
             <div style="display: flex;">
@@ -281,9 +242,9 @@
                 <video class="d-none d-md-block" width="100%" style="height: 0px;" autoplay="" muted="" controls=""
                   loop="" id="nvr388" src="./assets/videos/editing/editing_rot.mp4"
                   onplay="resizeAndPlay(this)"></video>
-                <canvas class="d-none d-md-block" width="3200" height="608" id="nvr388Merge"></canvas>
+                <canvas class="d-none d-md-block" width="1600" height="608" id="nvr388Merge"></canvas>
                 <!-- <canvas class="d-none d-md-block" width="100%" id="nvr388Merge"></canvas> -->
-                <h4>OmniRE VS Ours</h4>
+                <h4>OmniRE VS Ours (Translation) </h4>
               </div>
             </div>
             <br>
@@ -291,7 +252,6 @@
           <br>
           <hr><br>
         </div>
-
       </div>
       <!-- <div class="columns is-centered" style="margin-bottom: 60px;">
         <div class="column">
