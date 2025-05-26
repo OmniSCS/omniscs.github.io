@@ -1,0 +1,103 @@
+<!--
+ * @Author: Xiaoyun DONG
+ * @Date: 2025-05-26 23:47:35
+ * @LastEditors: Xiaoyun DONG
+ * @LastEditTime: 2025-05-26 23:47:46
+ * @FilePath: /omniscs.github.io/static/dataset.html
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by Xiaoyun DONG , All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        .dataset-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .scene-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .scene-item {
+            background-color: #e8f4fc;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .description {
+            margin-bottom: 15px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dataset Information</h1>
+    
+    <div class="dataset-section">
+        <h2>Photorealism Dataset</h2>
+        <p class="description">
+            We selected 8 challenging scenes from the public NuScenes dataset for scenario editing. 
+            These included scenes with over 50 vehicles, data from different countries, and varied 
+            weather (sunny, rainy) and lighting conditions (daytime, nighttime). Every tenth frame 
+            of the driving videos was used as a test frame.
+        </p>
+        <div class="scene-list">
+            <div class="scene-item">Scene-0003</div>
+            <div class="scene-item">Scene-0105</div>
+            <div class="scene-item">Scene-0127</div>
+            <div class="scene-item">Scene-0514</div>
+            <div class="scene-item">Scene-1098</div>
+            <div class="scene-item">Scene-0443</div>
+            <div class="scene-item">Scene-0399</div>
+            <div class="scene-item">Scene-0405</div>
+        </div>
+    </div>
+    
+    <div class="dataset-section">
+        <h2>Data Fidelity for Algorithms</h2>
+        <p class="description">
+            Beyond photorealism, synthetic data for autonomous driving systems must also exhibit 
+            algorithmic realism. Following the real-world corner case CODA dataset setup, we 
+            selected 8 safety-critical scenarios for evaluation.
+        </p>
+        <div class="scene-list">
+            <div class="scene-item">Scene-0092</div>
+            <div class="scene-item">Scene-0109</div>
+            <div class="scene-item">Scene-0521</div>
+            <div class="scene-item">Scene-0522</div>
+            <div class="scene-item">Scene-0523</div>
+            <div class="scene-item">Scene-0627</div>
+            <div class="scene-item">Scene-0637</div>
+            <div class="scene-item">Scene-0909</div>
+        </div>
+    </div>
+</body>
+</html>
