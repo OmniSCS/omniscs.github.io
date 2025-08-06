@@ -74,6 +74,10 @@ body {
 .publication-header .hero-body {
 }
 
+.title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .publication-title {
     font-family: 'Google Sans', sans-serif;
 }
