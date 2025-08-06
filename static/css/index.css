@@ -39,6 +39,22 @@ body {
     margin-left: -20%; /* 负的左外边距，使视频居中 */
 }
 
+.blue-button {
+  background-color: #339ACC !important;  /* 你也可以用 #3498db, 都是明快亮眼的蓝 */
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.blue-button:hover,
+.blue-button:focus {
+  background-color: #217dbb !important; /* 比如深一点的蓝，悬停效果 */
+  color: #fff !important;
+}
+.blue-button .icon,
+.blue-button .icon i {
+  color: #fff !important;
+}
+  
 .publication-title {
 }
 
