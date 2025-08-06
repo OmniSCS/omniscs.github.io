@@ -1,6 +1,6 @@
 body {
   /* font-family: 'Noto Sans', sans-serif; */
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
 }
 
 .footer .icon-link {
