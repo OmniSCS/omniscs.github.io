@@ -1,3 +1,5 @@
+console.log('three-viewer.js loaded');
+console.log(typeof THREE);
 document.addEventListener('DOMContentLoaded', function() {
     const viewer = document.getElementById('three-viewer');
     const width = viewer.offsetWidth, height = viewer.offsetHeight;
