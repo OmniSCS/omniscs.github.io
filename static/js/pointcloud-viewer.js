@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     const loader = new THREE.PLYLoader();
     loader.load('assets/videos/0.ply', function (geometry) {
-        const material = new THREE.PointsMaterial({ size: 0.01, vertexColors: true });
+        const material = new THREE.PointsMaterial({ size: 0.2, vertexColors: true });
         const points = new THREE.Points(geometry, material);
         scene.add(points);
     });
