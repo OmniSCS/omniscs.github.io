@@ -221,3 +221,47 @@ $(document).ready(function() {
 //     setInterval(showNextItem, 3000); // 每3秒切换一次
 //   });
 // });
+// 判断是否有#three-viewer容器，防止报错
+const viewer = document.getElementById('three-viewer');
+if (viewer) {
+  // 1. 场景
+  const scene = new THREE.Scene();
+
+  // 2. 相机
+  const width = viewer.offsetWidth;
+  const height = viewer.offsetHeight;
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  camera.position.z = 10;
+
+  // 3. 渲染器
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize(width, height);
+  viewer.appendChild(renderer.domElement);
+
+  // 4. 点云
+  const points = [];
+  for (let i = 0; i < 1000; i++) {
+    points.push(
+      THREE.MathUtils.randFloatSpread(10),
+      THREE.MathUtils.randFloatSpread(10),
+      THREE.MathUtils.randFloatSpread(10)
+    );
+  }
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
+  const material = new THREE.PointsMaterial({ color: 0x00c8ff, size: 0.12 });
+  const pointCloud = new THREE.Points(geometry, material);
+  scene.add(pointCloud);
+
+  // 5. 交互控件
+  if (typeof THREE.OrbitControls !== "undefined") {
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  }
+
+  // 6. 渲染循环
+  function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+  }
+  animate();
+}
