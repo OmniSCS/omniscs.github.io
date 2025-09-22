@@ -2,7 +2,7 @@
  * @Author: Xiaoyun DONG
  * @Date: 2025-05-26 23:47:35
  * @LastEditors: Xiaoyun DONG
- * @LastEditTime: 2025-05-26 23:59:16
+ * @LastEditTime: 2025-09-22 15:25:09
  * @FilePath: /omniscs.github.io/static/dataset.html
  * @Description: 
  * 
@@ -64,21 +64,47 @@
     <div class="dataset-section">
         <h2>Photorealism Experiment</h2>
         <p class="description">
-            We selected 8 challenging scenes from the public NuScenes dataset for scenario editing. 
+            We selected 8 challenging scenes from the public NuScenes, Waymo, and KITTI dataset for scenario editing. 
             These included scenes with over 50 vehicles, data from different countries, and varied 
             weather (sunny, rainy) and lighting conditions (daytime, nighttime). Every tenth frame 
             of the driving videos was used as a test frame.
         </p>
-        <div class="scene-list">
-            <div class="scene-item">Scene-0003</div>
-            <div class="scene-item">Scene-0105</div>
-            <div class="scene-item">Scene-0127</div>
-            <div class="scene-item">Scene-0514</div>
-            <div class="scene-item">Scene-1098</div>
-            <div class="scene-item">Scene-0443</div>
-            <div class="scene-item">Scene-0399</div>
-            <div class="scene-item">Scene-0405</div>
-        </div>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Dataset</th>
+                    <th>Scene IDs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>NuScenes</td>
+                    <td>
+                        scene-0003, scene-0105,<br>
+                        scene-0127, scene-0399,<br>
+                        scene-0405, scene-0443,<br>
+                        scene-0514, scene-1098
+                    </td>
+                </tr>
+                <tr>
+                    <td>Waymo</td>
+                    <td>
+                        seg109239...,<br>
+                        seg125050...,<br>
+                        seg113555...,<br>
+                        seg128560...
+                    </td>
+                </tr>
+                <tr>
+                    <td>KITTI</td>
+                    <td>
+                        2011_09_26_drive_0014.sync,<br>
+                        2011_09_26_drive_0017.sync,<br>
+                        2011_09_26_drive_0018.sync
+                    </td>
+                </tr>
+            </tbody>
+        </table>        
     </div>
     
     <div class="dataset-section">
